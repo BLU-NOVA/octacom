@@ -6,13 +6,34 @@ const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", { name, email, message });
-    setName("");
-    setEmail("");
-    setMessage("");
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setStatus("error");
+    }
   };
 
   const containerVariants = {
@@ -120,12 +141,34 @@ const ContactForm: React.FC = () => {
         <motion.div variants={itemVariants}>
           <button
             type="submit"
-            className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            className="w-full flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={status === "sending"}
           >
-            Just Send <span className="ml-2">✍️</span>
+            {status === "sending" ? "Sending..." : "Just Send"}{" "}
+            <span className="ml-2">✍️</span>
           </button>
         </motion.div>
       </motion.form>
+      {status === "success" && (
+        <motion.p
+          className="mt-4 text-green-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Message sent successfully!
+        </motion.p>
+      )}
+      {status === "error" && (
+        <motion.p
+          className="mt-4 text-red-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Failed to send message. Please try again.
+        </motion.p>
+      )}
     </motion.div>
   );
 };
