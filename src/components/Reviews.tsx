@@ -1,23 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
+import { FaRegUserCircle } from "react-icons/fa";
 
 const testimonials = [
-  {
-    name: 'Dennis Kiptum',
-    role: 'Customer',
-    content: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
-  },
-  {
-    name: 'Dennis Kiptum',
-    role: 'Customer',
-    content: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
-  },
-  {
-    name: 'Dennis Kiptum',
-    role: 'Customer',
-    content: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
-  }
-];
+    {
+      name: 'Dennis Kiptum',
+      role: 'Software Engineer',
+      content: 'This platform has completely transformed how I manage my tasks. It’s user-friendly, efficient, and has improved my productivity immensely.',
+      imageUrl: '/dennis.jpg'
+    },
+    {
+      name: 'John Smith',
+      role: 'Freelancer',
+      content: 'Ive been able to connect with new clients and streamline my workflow with ease. I highly recommend this service to all professionals!',
+      imageUrl: '/woman.png'
+    },
+    {
+      name: 'Emily Zhang',
+      role: 'Small Business Owner',
+      content: 'Using this tool has simplified how I run my business. It’s intuitive and has helped me save both time and money.',
+      imageUrl: '/2.png'
+    }
+  ];
+  
 
 const Reviews = () => {
   return (
@@ -28,12 +33,7 @@ const Reviews = () => {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
               <div className="w-24 h-24 relative mb-4">
-                <Image
-                  src="/api/placeholder/96/96"
-                  alt={testimonial.name}
-                  layout="fill"
-                  className="rounded-full"
-                />
+                < FaRegUserCircle className='w-24 h-24 relative mb-4'/>
               </div>
               <h3 className="text-xl font-semibold">{testimonial.name}</h3>
               <p className="text-gray-600 mb-4">{testimonial.role}</p>
