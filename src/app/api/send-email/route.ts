@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: parseInt(process.env.EMAIL_PORT || "587"),
     secure: process.env.EMAIL_SECURE === "true",
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   });
 
   try {
-    let info = await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Contact Form" <${process.env.EMAIL_FROM}>`,
       to: process.env.EMAIL_TO,
       subject: "New Contact Form Submission",

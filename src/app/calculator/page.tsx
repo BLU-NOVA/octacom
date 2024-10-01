@@ -19,8 +19,6 @@ const VolumeInput: React.FC<{
   label: string;
   unit: string;
 }> = ({ value, onChange, min, max, step, label, unit }) => {
-  const percentage = ((value - min) / (max - min)) * 100;
-
   return (
     <div className="mb-6">
       <label className="block text-sm font-medium text-gray-700 mb-2">
