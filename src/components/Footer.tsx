@@ -10,16 +10,28 @@ const Footer = () => {
           </div>
           <div className="w-full md:w-auto mb-4 md:mb-0">
             <nav className="flex flex-wrap justify-center md:justify-end">
-              <a href="#" className="mx-3 text-gray-600 hover:text-gray-900">
+              <a
+                href="#home"
+                className="mx-3 text-gray-600 hover:text-gray-900"
+              >
                 Home
               </a>
-              <a href="#" className="mx-3 text-gray-600 hover:text-gray-900">
-                About
-              </a>
-              <a href="#" className="mx-3 text-gray-600 hover:text-gray-900">
+              <a
+                href="#products"
+                className="mx-3 text-gray-600 hover:text-gray-900"
+              >
                 Services
               </a>
-              <a href="#" className="mx-3 text-gray-600 hover:text-gray-900">
+              <a
+                href="/calculator"
+                className="mx-3 text-gray-600 hover:text-gray-900"
+              >
+                Loan calculator
+              </a>
+              <a
+                href="/contact"
+                className="mx-3 text-gray-600 hover:text-gray-900"
+              >
                 Contact
               </a>
             </nav>
