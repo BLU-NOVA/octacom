@@ -1,8 +1,9 @@
 "use client";
-
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { Facebook, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
+
 const products = [
   { name: "OCTA SME LOAN", image: "/woman.png" },
   { name: "OCTA BIASHARA LOAN", image: "/2.png" },
@@ -24,10 +25,14 @@ const Hero = () => {
       <div
         id="home"
         className="relative w-full h-[80vh] bg-cover bg-top brightness-75"
-        style={{
-          backgroundImage: `url(${products[currentProduct].image})`, // Dynamically setting background image
-        }}
       >
+        <Image
+          src={products[currentProduct].image}
+          alt={products[currentProduct].name}
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
         <div className="absolute inset-0 flex flex-col justify-between p-6 sm:px-32">
           <div className="flex items-end h-full">
             <Link href="/contact">
@@ -39,6 +44,7 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Footer Section */}
       <div className="bg-[#FF9900] text-white p-6 sm:px-32">
         <div className="flex justify-between items-center mb-2">
           <div className="flex text-black text-3xl space-x-4">
