@@ -8,15 +8,15 @@ export const metadata: Metadata = {
   description:
     "Offering affordable loans and financial solutions to help businesses and individuals thrive.",
   keywords:
-    "microfinance, octacom, octacom capital, loans, financial services, small business, financial growth, credit solutions",
+    "octacom, microfinance, octacom capital, octacom capital limited, ocl, loans, octacom capital loans, financial services, small business, financial growth, credit solutions",
   openGraph: {
     title: "Octacom Capital Limited",
     description:
       "Empowering individuals and businesses with financial solutions to grow and succeed.",
-    url: "https://octacom.com",
+    url: "https://octacomcapital.com",
     images: [
       {
-        url: "/path/to/og-image.jpg",
+        url: "https://www.imghippo.com/i/tCzAl1728641375.svg",
         width: 1200,
         height: 630,
         alt: "Your financial bridge to success",
@@ -29,7 +29,14 @@ export const metadata: Metadata = {
     title: "Octacom Capital Limited",
     description:
       "Empowering your financial journey with personalized loan solutions.",
-    images: ["/x.webp"],
+    images: ["https://octacomcapital.com/x.webp"],
+  },
+  alternates: {
+    canonical: "https://octacomcapital.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -52,6 +59,19 @@ export default function RootLayout({
           href="/apple-touch-icon.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Octacom Capital Limited",
+              "url": "https://octacomcapital.com",
+              "logo": "https://www.imghippo.com/i/tCzAl1728641375.svg",
+              "description": "Offering affordable loans and financial solutions to help businesses and individuals thrive."
+            }
+          `}
+        </script>
       </head>
       <body className="flex flex-col min-h-screen antialiased">
         <Navbar />
