@@ -51,8 +51,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/9gLdzMh/image.png"
+        />
 
-        <link rel="icon" href="/icon.svg" />
+        <link rel="icon" href="https://i.ibb.co/9gLdzMh/image.png" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -67,7 +71,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Octacom Capital Limited",
               "url": "https://octacomcapital.com",
-              "logo": "https://www.imghippo.com/i/tCzAl1728641375.svg",
+              "logo": "https://i.ibb.co/9gLdzMh/image.png",
               "description": "Offering affordable loans and financial solutions to help businesses and individuals thrive."
             }
           `}
