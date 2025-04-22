@@ -104,9 +104,9 @@ const LoanCalculator: React.FC = () => {
         <VolumeInput
           value={totalAmount}
           onChange={setTotalAmount}
-          min={100000}
+          min={100}
           max={10000000}
-          step={100000}
+          step={500}
           label="Total Amount"
           unit="Kes"
         />
